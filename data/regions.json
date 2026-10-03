@@ -1,0 +1,499 @@
+{
+  "_comment": "《万相缇洛斯》区域节点数据。food_* 与 prey_* 是可再生存量（逻辑斯蒂），wood/stone/crystal/herb 是不可再生存量。",
+  "_units": "食物与猎物存量单位为「食物单位」，1 名兽人每天消耗 1.0。",
+  "_calibration": "承载力(人) = food_r·food_K/4 + prey_r·prey_K/8。起始节点灰水湾标定为 16 人，开局 12 人（两对父母 + 8 名子女）→ 部落长大到 16+ 才开始吃老本，第一次被迫迁徙落在第 5-8 个游戏年（1x 档约 20-32 现实分钟）。见 docs/11。",
+  "seasonal_gather": [
+    1.0,
+    1.15,
+    1.3,
+    0.45
+  ],
+  "seasonal_growth": [
+    1.0,
+    1.2,
+    0.8,
+    0.15
+  ],
+  "regions": {
+    "green_throat": {
+      "name": "绿喉",
+      "nodes": {
+        "gt_ashwater": {
+          "name": "灰水湾",
+          "biome": "temperate_forest",
+          "food_stock": 2250,
+          "food_K": 3000,
+          "food_r": 0.02,
+          "prey_stock": 480,
+          "prey_K": 800,
+          "prey_r": 0.03,
+          "wood": 400,
+          "stone": 60,
+          "crystal": 0,
+          "herb": 120,
+          "magic_density": 0.35,
+          "danger": 1,
+          "disaster_bias": {
+            "drought": 0.6,
+            "flood": 1.4,
+            "beast_tide": 0.8
+          },
+          "blood_pool": [
+            "fel_cat",
+            "can_wolf",
+            "vul_fox",
+            "acc_hawk",
+            "lep_hare",
+            "can_hound"
+          ],
+          "adjacent": {
+            "gt_deeproot": 3,
+            "gt_saltmarsh": 5
+          },
+          "owner": null
+        },
+        "gt_deeproot": {
+          "name": "深根林",
+          "biome": "old_growth_forest",
+          "food_stock": 2775,
+          "food_K": 3700,
+          "food_r": 0.02,
+          "prey_stock": 540,
+          "prey_K": 900,
+          "prey_r": 0.03,
+          "wood": 900,
+          "stone": 40,
+          "crystal": 0,
+          "herb": 200,
+          "magic_density": 0.45,
+          "danger": 2,
+          "disaster_bias": {
+            "drought": 0.3,
+            "flood": 0.6,
+            "insect_blight": 1.5
+          },
+          "blood_pool": [
+            "fel_cat",
+            "cer_deer",
+            "vul_fox",
+            "cor_raven",
+            "ovi_sheep"
+          ],
+          "adjacent": {
+            "gt_ashwater": 3,
+            "gt_stoneford": 4
+          },
+          "owner": null
+        },
+        "gt_saltmarsh": {
+          "name": "盐沼",
+          "biome": "salt_marsh",
+          "food_stock": 1725,
+          "food_K": 2300,
+          "food_r": 0.02,
+          "prey_stock": 420,
+          "prey_K": 700,
+          "prey_r": 0.04,
+          "wood": 60,
+          "stone": 30,
+          "crystal": 0,
+          "herb": 260,
+          "magic_density": 0.4,
+          "danger": 1,
+          "disaster_bias": {
+            "flood": 1.8,
+            "blight": 1.2
+          },
+          "blood_pool": [
+            "lut_otter",
+            "can_hound",
+            "lep_hare",
+            "ser_snake"
+          ],
+          "adjacent": {
+            "gt_ashwater": 5,
+            "ls_tideline": 4
+          },
+          "owner": null
+        },
+        "gt_stoneford": {
+          "name": "石渡",
+          "biome": "river_ford",
+          "food_stock": 2325,
+          "food_K": 3100,
+          "food_r": 0.02,
+          "prey_stock": 480,
+          "prey_K": 800,
+          "prey_r": 0.035,
+          "wood": 300,
+          "stone": 220,
+          "crystal": 0,
+          "herb": 90,
+          "magic_density": 0.3,
+          "danger": 1,
+          "disaster_bias": {
+            "flood": 1.5,
+            "raiders": 1.3
+          },
+          "blood_pool": [
+            "can_wolf",
+            "bov_ox",
+            "can_hound",
+            "fel_cat"
+          ],
+          "adjacent": {
+            "gt_deeproot": 4,
+            "fr_pinewatch": 6
+          },
+          "owner": null
+        }
+      }
+    },
+    "frost_ridge": {
+      "name": "霜脊",
+      "nodes": {
+        "fr_pinewatch": {
+          "name": "松哨",
+          "biome": "conifer_forest",
+          "food_stock": 2625,
+          "food_K": 3500,
+          "food_r": 0.012,
+          "prey_stock": 540,
+          "prey_K": 900,
+          "prey_r": 0.022,
+          "wood": 700,
+          "stone": 120,
+          "crystal": 0,
+          "herb": 60,
+          "magic_density": 0.15,
+          "danger": 2,
+          "disaster_bias": {
+            "winter": 1.9,
+            "beast_tide": 1.1
+          },
+          "blood_pool": [
+            "urs_bear",
+            "can_wolf",
+            "fel_leo",
+            "cor_raven"
+          ],
+          "adjacent": {
+            "gt_stoneford": 6,
+            "fr_glaciergate": 4
+          },
+          "owner": null
+        },
+        "fr_glaciergate": {
+          "name": "冰川门",
+          "biome": "tundra",
+          "food_stock": 1628,
+          "food_K": 2170,
+          "food_r": 0.012,
+          "prey_stock": 600,
+          "prey_K": 1000,
+          "prey_r": 0.02,
+          "wood": 80,
+          "stone": 260,
+          "crystal": 20,
+          "herb": 30,
+          "magic_density": 0.1,
+          "danger": 3,
+          "disaster_bias": {
+            "winter": 2.2,
+            "cold_snap": 1.8
+          },
+          "blood_pool": [
+            "urs_bear",
+            "bov_ox",
+            "fel_leo"
+          ],
+          "adjacent": {
+            "fr_pinewatch": 4,
+            "ar_cinderplain": 7
+          },
+          "owner": null
+        }
+      }
+    },
+    "red_tumor": {
+      "name": "赤瘤",
+      "nodes": {
+        "rt_crystalgulch": {
+          "name": "晶簇谷",
+          "biome": "mana_waste",
+          "food_stock": 1898,
+          "food_K": 2530,
+          "food_r": 0.008,
+          "prey_stock": 180,
+          "prey_K": 300,
+          "prey_r": 0.025,
+          "wood": 20,
+          "stone": 180,
+          "crystal": 420,
+          "herb": 150,
+          "magic_density": 0.9,
+          "danger": 4,
+          "disaster_bias": {
+            "mana_tide": 2.0,
+            "mutant_beast": 1.8,
+            "blight": 1.4
+          },
+          "blood_pool": [
+            "sau_lizard",
+            "ser_snake",
+            "cor_raven",
+            "mur_rat"
+          ],
+          "adjacent": {
+            "rt_ashscar": 3,
+            "rv_deepfissure": 6
+          },
+          "owner": null
+        },
+        "rt_ashscar": {
+          "name": "灰疤",
+          "biome": "scorched_flat",
+          "food_stock": 2850,
+          "food_K": 3800,
+          "food_r": 0.01,
+          "prey_stock": 300,
+          "prey_K": 500,
+          "prey_r": 0.025,
+          "wood": 40,
+          "stone": 300,
+          "crystal": 180,
+          "herb": 70,
+          "magic_density": 0.7,
+          "danger": 3,
+          "disaster_bias": {
+            "mana_tide": 1.5,
+            "drought": 1.6
+          },
+          "blood_pool": [
+            "sau_lizard",
+            "urs_bear",
+            "mur_rat",
+            "ser_snake"
+          ],
+          "adjacent": {
+            "rt_crystalgulch": 3,
+            "gt_deeproot": 7
+          },
+          "owner": null
+        }
+      }
+    },
+    "long_shore": {
+      "name": "长滩",
+      "nodes": {
+        "ls_tideline": {
+          "name": "潮线",
+          "biome": "coast",
+          "food_stock": 2250,
+          "food_K": 3000,
+          "food_r": 0.022,
+          "prey_stock": 540,
+          "prey_K": 900,
+          "prey_r": 0.04,
+          "wood": 120,
+          "stone": 90,
+          "crystal": 0,
+          "herb": 110,
+          "magic_density": 0.4,
+          "danger": 1,
+          "disaster_bias": {
+            "flood": 1.6,
+            "raiders": 1.5,
+            "storm": 1.4
+          },
+          "blood_pool": [
+            "lut_otter",
+            "vul_fox",
+            "can_hound",
+            "fel_cat",
+            "acc_hawk"
+          ],
+          "adjacent": {
+            "gt_saltmarsh": 4,
+            "ls_amberport": 3
+          },
+          "owner": null
+        },
+        "ls_amberport": {
+          "name": "琥珀港",
+          "biome": "coastal_town",
+          "food_stock": 2175,
+          "food_K": 2900,
+          "food_r": 0.02,
+          "prey_stock": 480,
+          "prey_K": 800,
+          "prey_r": 0.035,
+          "wood": 200,
+          "stone": 240,
+          "crystal": 90,
+          "herb": 180,
+          "magic_density": 0.45,
+          "danger": 1,
+          "disaster_bias": {
+            "plague": 1.6,
+            "tax_levy": 1.8,
+            "raiders": 1.2
+          },
+          "blood_pool": [
+            "vul_fox",
+            "fel_cat",
+            "can_hound",
+            "lut_otter"
+          ],
+          "adjacent": {
+            "ls_tideline": 3,
+            "ar_cinderplain": 6
+          },
+          "owner": "nine_tails"
+        }
+      }
+    },
+    "ash_ring": {
+      "name": "灰烬环",
+      "nodes": {
+        "ar_cinderplain": {
+          "name": "灰烬原",
+          "biome": "ash_plain",
+          "food_stock": 2438,
+          "food_K": 3250,
+          "food_r": 0.012,
+          "prey_stock": 360,
+          "prey_K": 600,
+          "prey_r": 0.03,
+          "wood": 60,
+          "stone": 340,
+          "crystal": 60,
+          "herb": 100,
+          "magic_density": 0.65,
+          "danger": 3,
+          "disaster_bias": {
+            "ashfall": 1.9,
+            "mana_tide": 1.3,
+            "beast_tide": 1.2
+          },
+          "blood_pool": [
+            "cer_deer",
+            "ovi_sheep",
+            "cor_raven",
+            "fel_leo",
+            "vul_fox"
+          ],
+          "adjacent": {
+            "fr_glaciergate": 7,
+            "ls_amberport": 6,
+            "ar_bonefield": 4
+          },
+          "owner": null
+        },
+        "ar_bonefield": {
+          "name": "骨原",
+          "biome": "bone_field",
+          "food_stock": 2062,
+          "food_K": 2750,
+          "food_r": 0.012,
+          "prey_stock": 300,
+          "prey_K": 500,
+          "prey_r": 0.028,
+          "wood": 30,
+          "stone": 400,
+          "crystal": 140,
+          "herb": 130,
+          "magic_density": 0.75,
+          "danger": 4,
+          "disaster_bias": {
+            "ancestor_wrath": 1.7,
+            "mutant_beast": 1.5,
+            "ashfall": 1.4
+          },
+          "blood_pool": [
+            "cor_raven",
+            "acc_hawk",
+            "ser_snake",
+            "ovi_sheep"
+          ],
+          "adjacent": {
+            "ar_cinderplain": 4,
+            "rv_deepfissure": 5
+          },
+          "owner": null
+        }
+      }
+    },
+    "rift_valley": {
+      "name": "脉裂",
+      "nodes": {
+        "rv_deepfissure": {
+          "name": "深裂",
+          "biome": "great_rift",
+          "food_stock": 2512,
+          "food_K": 3350,
+          "food_r": 0.014,
+          "prey_stock": 360,
+          "prey_K": 600,
+          "prey_r": 0.03,
+          "wood": 140,
+          "stone": 320,
+          "crystal": 260,
+          "herb": 220,
+          "magic_density": 0.7,
+          "danger": 4,
+          "disaster_bias": {
+            "ley_shift": 1.8,
+            "mutant_beast": 1.6,
+            "cave_in": 1.5
+          },
+          "blood_pool": [
+            "mur_rat",
+            "ser_snake",
+            "lut_otter",
+            "sau_lizard"
+          ],
+          "adjacent": {
+            "rv_underriver": 3,
+            "rt_crystalgulch": 6,
+            "ar_bonefield": 5
+          },
+          "owner": null
+        },
+        "rv_underriver": {
+          "name": "地下河",
+          "biome": "underground_river",
+          "food_stock": 2475,
+          "food_K": 3300,
+          "food_r": 0.016,
+          "prey_stock": 420,
+          "prey_K": 700,
+          "prey_r": 0.032,
+          "wood": 50,
+          "stone": 200,
+          "crystal": 300,
+          "herb": 300,
+          "magic_density": 0.8,
+          "danger": 4,
+          "disaster_bias": {
+            "flood": 1.7,
+            "ley_shift": 1.5,
+            "cave_in": 1.9
+          },
+          "blood_pool": [
+            "mur_rat",
+            "lut_otter",
+            "sau_lizard",
+            "ser_snake",
+            "lep_hare"
+          ],
+          "adjacent": {
+            "rv_deepfissure": 3,
+            "gt_saltmarsh": 6
+          },
+          "owner": null
+        }
+      }
+    }
+  }
+}

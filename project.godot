@@ -1,0 +1,26 @@
+; 《万相缇洛斯》— M1 垂直切片
+;
+; 跑游戏：      ./tools/godot.sh
+; 无头自检：    ./tools/godot.sh --headless -- --self-test
+; 遗传平衡模拟：./tools/godot.sh --headless --script res://tools/balance_sim.gd
+; 资源节奏标定：./tools/godot.sh --headless --script res://tools/resource_sim.gd
+
+config_version=5
+
+[application]
+
+config/name="万相缇洛斯"
+config/description="兽人部落 × 血脉进化 × 迁徙生存。M1 垂直切片：资源耗竭 + 谱系规划 + 迁徙决策。"
+config/features=PackedStringArray("4.7")
+run/main_scene="res://game/main.tscn"
+config/icon=""
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=1000
+window/size/resizable=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

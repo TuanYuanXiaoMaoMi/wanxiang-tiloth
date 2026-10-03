@@ -1,0 +1,9 @@
+# Godot 生成物
+.godot/
+*.translation
+
+# 本仓库的 Godot 启动包装脚本会用到（见 tools/godot.sh）
+.ghome/
+
+# 系统文件
+.DS_Store

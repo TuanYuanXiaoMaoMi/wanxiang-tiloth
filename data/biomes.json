@@ -1,0 +1,112 @@
+{
+  "_comment": "生态群系蓝图。世界生成器按权重抽取群系，再按 capacity 目标反推资源参数。",
+  "_principle": "承载力(人) = food_r·food_K/4 + prey_r·prey_K/8。生成器保证抽出来的节点承载力落在 capacity 区间内，因此 docs/11 标定好的迁徙节奏在大陆随机重开后依然成立。",
+
+  "biomes": {
+    "temperate_forest": {
+      "name": "温带森林", "weight": 1.4, "capacity": [13, 19], "prey_share": [0.25, 0.40],
+      "magic": [0.25, 0.45], "danger": [1, 2],
+      "resources": { "wood": [300, 600], "stone": [30, 90], "crystal": [0, 0], "herb": [80, 160] },
+      "blood_pool": ["fel_cat", "can_wolf", "vul_fox", "lep_hare", "acc_hawk", "can_hound"],
+      "disaster_bias": { "drought": 0.7, "flood": 1.2, "insect_blight": 1.1 }
+    },
+    "old_growth_forest": {
+      "name": "原始林", "weight": 0.7, "capacity": [16, 23], "prey_share": [0.20, 0.35],
+      "magic": [0.35, 0.55], "danger": [2, 3],
+      "resources": { "wood": [700, 1100], "stone": [20, 60], "crystal": [0, 0], "herb": [150, 260] },
+      "blood_pool": ["fel_cat", "cer_deer", "vul_fox", "cor_raven", "ovi_sheep", "urs_bear"],
+      "disaster_bias": { "drought": 0.3, "flood": 0.6, "insect_blight": 1.5 }
+    },
+    "conifer_forest": {
+      "name": "针叶林", "weight": 1.1, "capacity": [9, 14], "prey_share": [0.30, 0.45],
+      "magic": [0.10, 0.25], "danger": [1, 3],
+      "resources": { "wood": [500, 900], "stone": [80, 180], "crystal": [0, 20], "herb": [30, 80] },
+      "blood_pool": ["urs_bear", "can_wolf", "fel_leo", "cor_raven", "bov_ox"],
+      "disaster_bias": { "winter": 1.9, "cold_snap": 1.5, "beast_tide": 1.1 }
+    },
+    "tundra": {
+      "name": "冻原", "weight": 0.8, "capacity": [6, 10], "prey_share": [0.40, 0.60],
+      "magic": [0.05, 0.18], "danger": [2, 4],
+      "resources": { "wood": [40, 120], "stone": [180, 340], "crystal": [10, 40], "herb": [10, 50] },
+      "blood_pool": ["urs_bear", "bov_ox", "fel_leo", "can_wolf"],
+      "disaster_bias": { "winter": 2.2, "cold_snap": 1.8, "beast_tide": 1.2 }
+    },
+    "coast": {
+      "name": "海岸", "weight": 1.0, "capacity": [15, 22], "prey_share": [0.40, 0.55],
+      "magic": [0.30, 0.50], "danger": [1, 2],
+      "resources": { "wood": [80, 200], "stone": [60, 140], "crystal": [0, 30], "herb": [80, 160] },
+      "blood_pool": ["lut_otter", "vul_fox", "can_hound", "fel_cat", "acc_hawk"],
+      "disaster_bias": { "flood": 1.6, "storm": 1.4, "raiders": 1.3 }
+    },
+    "salt_marsh": {
+      "name": "盐沼", "weight": 0.9, "capacity": [11, 16], "prey_share": [0.35, 0.50],
+      "magic": [0.30, 0.50], "danger": [1, 2],
+      "resources": { "wood": [30, 90], "stone": [20, 60], "crystal": [0, 0], "herb": [180, 300] },
+      "blood_pool": ["lut_otter", "can_hound", "lep_hare", "ser_snake", "mur_rat"],
+      "disaster_bias": { "flood": 1.8, "blight": 1.2, "plague": 1.3 }
+    },
+    "river_ford": {
+      "name": "河渡", "weight": 1.0, "capacity": [14, 20], "prey_share": [0.35, 0.50],
+      "magic": [0.20, 0.40], "danger": [1, 2],
+      "resources": { "wood": [200, 420], "stone": [140, 280], "crystal": [0, 20], "herb": [60, 130] },
+      "blood_pool": ["can_wolf", "bov_ox", "can_hound", "fel_cat", "lut_otter"],
+      "disaster_bias": { "flood": 1.5, "raiders": 1.3, "plague": 1.2 }
+    },
+    "mana_waste": {
+      "name": "魔素荒原", "weight": 0.7, "capacity": [4, 8], "prey_share": [0.20, 0.35],
+      "magic": [0.70, 1.00], "danger": [3, 5],
+      "resources": { "wood": [0, 40], "stone": [120, 240], "crystal": [280, 520], "herb": [80, 200] },
+      "blood_pool": ["sau_lizard", "ser_snake", "cor_raven", "mur_rat", "urs_bear"],
+      "disaster_bias": { "mana_tide": 2.0, "mutant_beast": 1.8, "blight": 1.4 }
+    },
+    "scorched_flat": {
+      "name": "焦土", "weight": 0.8, "capacity": [8, 13], "prey_share": [0.25, 0.40],
+      "magic": [0.50, 0.80], "danger": [2, 4],
+      "resources": { "wood": [20, 70], "stone": [200, 380], "crystal": [100, 240], "herb": [30, 100] },
+      "blood_pool": ["sau_lizard", "urs_bear", "mur_rat", "ser_snake", "fel_leo"],
+      "disaster_bias": { "drought": 1.6, "ashfall": 1.5, "mana_tide": 1.4 }
+    },
+    "ash_plain": {
+      "name": "灰烬原", "weight": 0.8, "capacity": [9, 14], "prey_share": [0.30, 0.45],
+      "magic": [0.45, 0.75], "danger": [2, 4],
+      "resources": { "wood": [20, 80], "stone": [240, 420], "crystal": [30, 100], "herb": [60, 140] },
+      "blood_pool": ["cer_deer", "ovi_sheep", "cor_raven", "fel_leo", "vul_fox"],
+      "disaster_bias": { "ashfall": 1.9, "beast_tide": 1.2, "ancestor_wrath": 1.3 }
+    },
+    "bone_field": {
+      "name": "骨原", "weight": 0.6, "capacity": [7, 12], "prey_share": [0.25, 0.40],
+      "magic": [0.55, 0.85], "danger": [3, 5],
+      "resources": { "wood": [10, 50], "stone": [300, 480], "crystal": [90, 200], "herb": [80, 180] },
+      "blood_pool": ["cor_raven", "acc_hawk", "ser_snake", "ovi_sheep", "sau_lizard"],
+      "disaster_bias": { "ancestor_wrath": 1.7, "mutant_beast": 1.5, "ashfall": 1.4 }
+    },
+    "great_rift": {
+      "name": "大裂谷", "weight": 0.7, "capacity": [11, 16], "prey_share": [0.25, 0.40],
+      "magic": [0.55, 0.80], "danger": [3, 5],
+      "resources": { "wood": [80, 200], "stone": [240, 400], "crystal": [180, 340], "herb": [150, 280] },
+      "blood_pool": ["mur_rat", "ser_snake", "lut_otter", "sau_lizard", "cor_raven"],
+      "disaster_bias": { "ley_shift": 1.8, "cave_in": 1.6, "mutant_beast": 1.5 }
+    },
+    "underground_river": {
+      "name": "地下河", "weight": 0.5, "capacity": [12, 18], "prey_share": [0.30, 0.45],
+      "magic": [0.60, 0.90], "danger": [3, 5],
+      "resources": { "wood": [20, 80], "stone": [140, 260], "crystal": [200, 380], "herb": [200, 360] },
+      "blood_pool": ["mur_rat", "lut_otter", "sau_lizard", "ser_snake", "lep_hare"],
+      "disaster_bias": { "flood": 1.7, "ley_shift": 1.5, "cave_in": 1.9 }
+    },
+    "coastal_town": {
+      "name": "港口", "weight": 0.4, "capacity": [13, 19], "prey_share": [0.30, 0.45],
+      "magic": [0.35, 0.55], "danger": [1, 2],
+      "resources": { "wood": [140, 300], "stone": [160, 300], "crystal": [50, 140], "herb": [120, 240] },
+      "blood_pool": ["vul_fox", "fel_cat", "can_hound", "lut_otter", "acc_hawk"],
+      "disaster_bias": { "plague": 1.6, "tax_levy": 1.8, "raiders": 1.2 }
+    }
+  },
+
+  "region_names": ["绿喉", "霜脊", "赤瘤", "长滩", "灰烬环", "脉裂", "雾岬", "锈原", "鸣谷", "白石滩"],
+  "node_prefixes": ["灰水", "深根", "盐", "石", "松", "冰川", "晶簇", "灰疤", "潮", "琥珀",
+    "灰烬", "骨", "深", "地下", "赤", "苔", "风", "暗", "碎", "远"],
+  "node_suffixes": ["湾", "林", "沼", "渡", "哨", "门", "谷", "原", "线", "港",
+    "地", "场", "窟", "口", "崖", "滩", "坳", "岭", "洼", "脊"],
+  "factions": ["iron_fang", "nine_tails", "feather_burial", "forest_mother", "lizard_swamp", "dune_dynasty"]
+}

@@ -1,0 +1,69 @@
+{
+  "_comment": "《万相缇洛斯》遗传系统静态数据。7 类群 / 16 血脉 / 21 组嵌合。数值可直接调，sim 层不做硬编码。",
+  "attributes": ["body", "agility", "perception", "craft", "vitality", "spirit"],
+  "base_attribute": 10,
+  "main_coeff": 0.30,
+  "sub_coeff": 0.12,
+
+  "clades": {
+    "shadow":  { "name": "影类", "desc": "猫科",       "bloodlines": ["fel_cat", "fel_leo"] },
+    "pack":    { "name": "群类", "desc": "犬科与狐",   "bloodlines": ["can_wolf", "can_hound", "vul_fox"] },
+    "swift":   { "name": "疾类", "desc": "兔与鼠",     "bloodlines": ["lep_hare", "mur_rat"] },
+    "horn":    { "name": "角类", "desc": "鹿牛羊",     "bloodlines": ["cer_deer", "bov_ox", "ovi_sheep"] },
+    "feather": { "name": "羽类", "desc": "鹰与鸦",     "bloodlines": ["acc_hawk", "cor_raven"] },
+    "scale":   { "name": "鳞类", "desc": "蜥与蛇",     "bloodlines": ["sau_lizard", "ser_snake"] },
+    "heavy":   { "name": "重类", "desc": "熊与水獭",   "bloodlines": ["urs_bear", "lut_otter"] }
+  },
+
+  "bloodlines": {
+    "fel_cat":   { "name": "家猫",   "clade": "shadow",  "main": "agility",    "sub": "perception", "magic": "space",  "rarity": 1.0 },
+    "fel_leo":   { "name": "大猫",   "clade": "shadow",  "main": "body",       "sub": "agility",    "magic": "space",  "rarity": 0.5 },
+    "can_wolf":  { "name": "狼",     "clade": "pack",    "main": "body",       "sub": "vitality",   "magic": "mind",   "rarity": 1.0 },
+    "can_hound": { "name": "犬",     "clade": "pack",    "main": "vitality",   "sub": "body",       "magic": "mind",   "rarity": 1.0 },
+    "vul_fox":   { "name": "狐",     "clade": "pack",    "main": "craft",      "sub": "spirit",     "magic": "illusion", "rarity": 0.9 },
+    "lep_hare":  { "name": "兔",     "clade": "swift",   "main": "agility",    "sub": "perception", "magic": "life",   "rarity": 1.0 },
+    "mur_rat":   { "name": "鼠",     "clade": "swift",   "main": "craft",      "sub": "agility",    "magic": "life",   "rarity": 1.0 },
+    "cer_deer":  { "name": "鹿",     "clade": "horn",    "main": "perception", "sub": "spirit",     "magic": "life",   "rarity": 0.9 },
+    "bov_ox":    { "name": "牛",     "clade": "horn",    "main": "body",       "sub": "vitality",   "magic": "earth",  "rarity": 0.8 },
+    "ovi_sheep": { "name": "羊",     "clade": "horn",    "main": "vitality",   "sub": "spirit",     "magic": "dream",  "rarity": 0.8 },
+    "acc_hawk":  { "name": "鹰",     "clade": "feather", "main": "perception", "sub": "agility",    "magic": "storm",  "rarity": 0.8 },
+    "cor_raven": { "name": "鸦",     "clade": "feather", "main": "spirit",     "sub": "craft",      "magic": "death",  "rarity": 0.7 },
+    "sau_lizard":{ "name": "蜥",     "clade": "scale",   "main": "vitality",   "sub": "body",       "magic": "blood",  "rarity": 0.9 },
+    "ser_snake": { "name": "蛇",     "clade": "scale",   "main": "craft",      "sub": "spirit",     "magic": "blood",  "rarity": 0.7 },
+    "urs_bear":  { "name": "熊",     "clade": "heavy",   "main": "body",       "sub": "vitality",   "magic": "earth",  "rarity": 0.7 },
+    "lut_otter": { "name": "水獭",   "clade": "heavy",   "main": "agility",    "sub": "craft",      "magic": "tide",   "rarity": 0.6 }
+  },
+
+  "chimeras": [
+    { "id": "chimera_hunt_pack",   "name": "猎群",     "clades": ["shadow", "pack"],    "rarity_mult": 1.0 },
+    { "id": "chimera_blink",       "name": "迅影",     "clades": ["shadow", "swift"],   "rarity_mult": 1.0 },
+    { "id": "chimera_herd_shadow", "name": "牧影",     "clades": ["shadow", "horn"],    "rarity_mult": 1.0 },
+    { "id": "chimera_sky_hunter",  "name": "天猎",     "clades": ["shadow", "feather"], "rarity_mult": 1.0 },
+    { "id": "chimera_mimic",       "name": "潜伏者",   "clades": ["shadow", "scale"],   "rarity_mult": 1.0 },
+    { "id": "chimera_dark_claw",   "name": "暗爪",     "clades": ["shadow", "heavy"],   "rarity_mult": 1.0 },
+    { "id": "chimera_tideborn",    "name": "潮生",     "clades": ["pack", "swift"],     "rarity_mult": 1.0 },
+    { "id": "chimera_herder",      "name": "牧者",     "clades": ["pack", "horn"],      "rarity_mult": 1.0 },
+    { "id": "chimera_herald",      "name": "传令",     "clades": ["pack", "feather"],   "rarity_mult": 1.0 },
+    { "id": "chimera_snake_tongue","name": "蛇语者",   "clades": ["pack", "scale"],     "rarity_mult": 1.0 },
+    { "id": "chimera_war_chief",   "name": "战酋",     "clades": ["pack", "heavy"],     "rarity_mult": 1.0 },
+    { "id": "chimera_woodwose",    "name": "林隐",     "clades": ["swift", "horn"],     "rarity_mult": 1.0 },
+    { "id": "chimera_skyleap",     "name": "跃空",     "clades": ["swift", "feather"],  "rarity_mult": 1.0 },
+    { "id": "chimera_molter",      "name": "蜕生",     "clades": ["swift", "scale"],    "rarity_mult": 1.0 },
+    { "id": "chimera_burrower",    "name": "穴居",     "clades": ["swift", "heavy"],    "rarity_mult": 1.0 },
+    { "id": "chimera_dreamspeaker","name": "梦语者",   "clades": ["horn", "feather"],   "rarity_mult": 1.0 },
+    { "id": "chimera_venom_medic", "name": "毒医",     "clades": ["horn", "scale"],     "rarity_mult": 1.0 },
+    { "id": "chimera_aurochs",     "name": "原牛",     "clades": ["horn", "heavy"],     "rarity_mult": 1.0 },
+    { "id": "chimera_dragonkin",   "name": "龙裔",     "clades": ["feather", "scale"],  "rarity_mult": 0.5 },
+    { "id": "chimera_windroar",    "name": "风啸",     "clades": ["feather", "heavy"],  "rarity_mult": 1.0 },
+    { "id": "chimera_deepdweller", "name": "深潜者",   "clades": ["scale", "heavy"],    "rarity_mult": 1.0 }
+  ],
+
+  "regions": {
+    "green_throat": { "magic_density": 0.35, "pool": ["fel_cat", "can_wolf", "vul_fox", "acc_hawk", "lep_hare", "can_hound"] },
+    "frost_ridge":  { "magic_density": 0.15, "pool": ["urs_bear", "can_wolf", "fel_leo", "bov_ox", "cor_raven"] },
+    "red_tumor":    { "magic_density": 0.90, "pool": ["sau_lizard", "ser_snake", "cor_raven", "mur_rat", "urs_bear"] },
+    "ash_ring":     { "magic_density": 0.65, "pool": ["cer_deer", "ovi_sheep", "cor_raven", "fel_leo", "vul_fox"] },
+    "rift_valley":  { "magic_density": 0.70, "pool": ["mur_rat", "ser_snake", "lut_otter", "sau_lizard", "lep_hare"] },
+    "long_shore":   { "magic_density": 0.40, "pool": ["lut_otter", "vul_fox", "can_hound", "fel_cat", "acc_hawk"] }
+  }
+}
